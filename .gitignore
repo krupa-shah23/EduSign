@@ -1,0 +1,24 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dataset
+data/raw_videos/
+data/processed/
+data/landmarks/
+data/WLASL/
+
+# Training outputs
+models/checkpoints/
+models/weights/
+logs/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
