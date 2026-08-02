@@ -8,16 +8,14 @@ from hold_last_value import hold_last_value
 
 # `io.py` collides with the stdlib `io` module name, so load it explicitly.
 _io_spec = importlib.util.spec_from_file_location(
-    "person_d_stub_io", os.path.join(os.path.dirname(__file__), "io.py")
+    "person_d_stub_io",
+    os.path.join(os.path.dirname(__file__), "..", "utils", "data_io.py"),
 )
 _io_module = importlib.util.module_from_spec(_io_spec)
 _io_spec.loader.exec_module(_io_module)
 load_recording = _io_module.load_recording
 
-SAMPLE_DIR = os.path.join(
-    os.path.dirname(__file__), "..", "person_c_stub", "sample_landmarks"
-)
-
+SAMPLE_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "person_c", "sample_landmarks")
 
 def test_valid_landmarks_unchanged():
     landmarks = np.random.default_rng(0).uniform(0, 1, size=(10, 543, 3)).astype(

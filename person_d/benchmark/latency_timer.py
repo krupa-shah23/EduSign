@@ -21,11 +21,9 @@ import numpy as np
 from hold_last_value import hold_last_value
 from normalisation import normalize_landmarks
 
-# Load local io.py explicitly (rather than `from io import ...`) since its
-# filename collides with Python's standard-library `io` module, which is
-# already present in sys.modules by the time this file is imported.
 _io_spec = importlib.util.spec_from_file_location(
-    "person_d_stub_io", os.path.join(os.path.dirname(__file__), "io.py")
+    "person_d_stub_io",
+    os.path.join(os.path.dirname(__file__), "..", "utils", "data_io.py"),
 )
 _io_module = importlib.util.module_from_spec(_io_spec)
 _io_spec.loader.exec_module(_io_module)
